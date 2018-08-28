@@ -29,64 +29,18 @@
 *  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package calc // import "github.com/kidoda/quikcalc"
+package quikcalc // import "github.com/kidoda/quikcalc"
 
 import (
-	"strconv"
+	"bufio"
+	"bytes"
 )
 
-type Token int
+var inputBuff bufio.Scanner
 
-const (
-	// Number Literals
-	ZERO Token = iota
-
-	ONE   // 1
-	TWO   // 2
-	THREE // 3
-	FOUR  // 4
-	FIVE  // 5
-	SIX   // 6
-	SEVEN // 7
-	EIGHT // 8
-	NINE  // 9
-
-	// Operators
-	ADD  // +
-	SUB  // -
-	MUL  // *
-	DIV  // /
-	MOD  // %
-	EXP  // ^
-	EVAL // =
-
-	// MISC
-	LPARANTHESIS // (
-	RPARENTHESIS // )
-	ENTER        // \CR
-
-)
-
-var tokens = [...]string{
-	ZERO:  '0',
-	ONE:   '1',
-	TWO:   '2',
-	THREE: '3',
-	FOUR:  '4',
-	FIVE:  '5',
-	SIX:   '6',
-	SEVEN: '7',
-	EIGHT: '8',
-	NINE:  '9',
-
-	ADD:  '+',
-	SUB:  '-',
-	MUL:  '*',
-	DIV:  '/',
-	MOD:  '%',
-	EXP:  '^',
-	EVAL: '=',
-
-	LPARANTHESIS: '(',
-	RPARENTHESIS: ')',
+func GetUserInput(from bufio.Scanner) {
+	var inbuff bytes.Buffer
+	for i, data := range from {
+		inbuff = from.Buffer(inbuff, len(data))
+	}
 }

@@ -29,9 +29,64 @@
 *  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package calc // import "github.com/kidoda/quikcalc"
+package quikcalc // import "github.com/kidoda/quikcalc"
 
 import (
-	"io"
-	"os"
+	"strconv"
 )
+
+type Token int
+
+const (
+	// Number Literals
+	ZERO Token = iota
+
+	ONE   // 1
+	TWO   // 2
+	THREE // 3
+	FOUR  // 4
+	FIVE  // 5
+	SIX   // 6
+	SEVEN // 7
+	EIGHT // 8
+	NINE  // 9
+
+	// Operators
+	ADD  // +
+	SUB  // -
+	MUL  // *
+	DIV  // /
+	MOD  // %
+	EXP  // ^
+	EVAL // =
+
+	// MISC
+	LPARANTHESIS // (
+	RPARENTHESIS // )
+	ENTER        // \CR
+
+)
+
+var tokens = [...]string{
+	ZERO:  '0',
+	ONE:   '1',
+	TWO:   '2',
+	THREE: '3',
+	FOUR:  '4',
+	FIVE:  '5',
+	SIX:   '6',
+	SEVEN: '7',
+	EIGHT: '8',
+	NINE:  '9',
+
+	ADD:  '+',
+	SUB:  '-',
+	MUL:  '*',
+	DIV:  '/',
+	MOD:  '%',
+	EXP:  '^',
+	EVAL: '=',
+
+	LPARANTHESIS: '(',
+	RPARENTHESIS: ')',
+}
